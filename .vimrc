@@ -11,7 +11,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'LucHermitte/lh-vim-lib'
 Plug 'LucHermitte/alternate-lite'
 Plug 'dyng/ctrlsf.vim'
-"Plug 'crucerucalin/qml.vim'
+Plug 'crucerucalin/qml.vim'
 Plug 'peterhoeg/vim-qml'
 
 call plug#end()
