@@ -1,3 +1,5 @@
+" initial package control install by line below
+
 call plug#begin('~/.vim/plugged')
 
 " On-demand loading
