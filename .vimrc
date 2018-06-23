@@ -1,6 +1,7 @@
 " initial package control install by line below
-
+"~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin('~/.vim/plugged')
+
 " On-demand loading
 " sudo apt install build-essential cmake
 " sudo apt-get install python-dev python3-dev
@@ -21,6 +22,7 @@ Plug 'peterhoeg/vim-qml'
 " On-demand loading
 Plug 'klen/python-mode'
 call plug#end()
+
 
 set number
 set expandtab
