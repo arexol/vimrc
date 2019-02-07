@@ -21,6 +21,7 @@ Plug 'crucerucalin/qml.vim'
 Plug 'peterhoeg/vim-qml'
 " On-demand loading
 Plug 'klen/python-mode'
+" Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 
@@ -33,11 +34,17 @@ set incsearch
 set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
 let g:mapleader=','
-set lcs+=space:·
+set list
+set lcs=space:·
+set lcs+=tab:>-
 let g:ctrl_custom_ignore = {
  \ 'dir': '\.git$\|tmp$|commit-backus',
  \ 'file': '\.so$|\.dat$'
  \ }
+if executable("ag")
+  let g:ackprg = "ag --nogroup --column"
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 map <C-n> :NERDTreeToggle<CR>
 map <Leader> <Plug>(easymotion-prefix)
 nmap <CR><CR> o<ESC>
@@ -49,6 +56,19 @@ nmap     <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+
+let g:multi_cursor_use_default_mapping=0
+
+" Default mapping
+let g:multi_cursor_start_word_key      = '<C-j>'
+let g:multi_cursor_select_all_word_key = '<A-j>'
+let g:multi_cursor_start_key           = 'g<C-j>'
+let g:multi_cursor_select_all_key      = 'g<A-j>'
+let g:multi_cursor_next_key            = '<C-j>'
+let g:multi_cursor_prev_key            = '<C-k>'
+let g:multi_cursor_skip_key            = '<C-l>'
+let g:multi_cursor_quit_key            = '<Esc>'
+
 
 map <F7> mzgg=G`z
 let g:pymode_run = 0
