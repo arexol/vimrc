@@ -21,7 +21,7 @@ Plug 'crucerucalin/qml.vim'
 Plug 'peterhoeg/vim-qml'
 " On-demand loading
 Plug 'klen/python-mode'
-" Plug 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 
@@ -48,15 +48,17 @@ endif
 map <C-n> :NERDTreeToggle<CR>
 map <Leader> <Plug>(easymotion-prefix)
 nmap <CR><CR> o<ESC>
-nmap     <C-F>f <Plug>CtrlSFPrompt
+nmap     <C-F>f <Plug>CtrlSFCwordPath
 vmap     <C-F>f <Plug>CtrlSFVwordPath
 vmap     <C-F>F <Plug>CtrlSFVwordExec
-nmap     <C-F>n <Plug>CtrlSFCwordPath
+"nmap     <C-F>n <Plug>CtrlSFCwordPath
 nmap     <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
-
+"let g:ctrlsf_extra_backend_args = {
+"      \ 'ag': '-g cpp'
+"      \ }
 let g:multi_cursor_use_default_mapping=0
 
 " Default mapping
@@ -69,6 +71,7 @@ let g:multi_cursor_prev_key            = '<C-k>'
 let g:multi_cursor_skip_key            = '<C-l>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 
 map <F7> mzgg=G`z
 let g:pymode_run = 0
