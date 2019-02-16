@@ -45,6 +45,7 @@ if executable("ag")
   let g:ackprg = "ag --nogroup --column"
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+imap <C-D> <Del>
 map <C-n> :NERDTreeToggle<CR>
 map <Leader> <Plug>(easymotion-prefix)
 nmap <CR><CR> o<ESC>
