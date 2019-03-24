@@ -22,7 +22,9 @@ Plug 'peterhoeg/vim-qml'
 " On-demand loading
 Plug 'klen/python-mode'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-airline/vim-airline'
 call plug#end()
+
 
 
 set number
@@ -57,6 +59,8 @@ nmap     <C-F>p <Plug>CtrlSFPwordPath
 nnoremap <C-F>o :CtrlSFOpen<CR>
 nnoremap <C-F>t :CtrlSFToggle<CR>
 inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
+inoremap <C-e> <C-o>$
+inoremap <C-a> <C-o>0
 "let g:ctrlsf_extra_backend_args = {
 "      \ 'ag': '-g cpp'
 "      \ }
@@ -73,7 +77,7 @@ let g:multi_cursor_skip_key            = '<C-l>'
 let g:multi_cursor_quit_key            = '<Esc>'
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-
+let g:airline#extensions#tabline#enabled = 1 
 map <F7> mzgg=G`z
 let g:pymode_run = 0
 let g:pymode_rope = 0
