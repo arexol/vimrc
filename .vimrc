@@ -9,7 +9,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Valloric/YouCompleteMe'
 Plug 'jiangmiao/auto-pairs'
-Plug 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim'
+Plug '~/.fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'easymotion/vim-easymotion'
 " apt-get install silversearcher-ag
 Plug 'rking/ag.vim'
@@ -34,9 +36,9 @@ set incsearch
 set timeoutlen=1000 ttimeoutlen=0
 set noswapfile
 let g:mapleader=','
-set list
-set lcs=space:·
-set lcs+=tab:>-
+"set list
+"set lcs=space:·
+"set lcs+=tab:>-
 let g:ctrl_custom_ignore = {
  \ 'dir': '\.git$\|tmp$|commit-backus',
  \ 'file': '\.so$|\.dat$'
@@ -45,9 +47,12 @@ if executable("ag")
   let g:ackprg = "ag --nogroup --column"
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+let g:fzf_buffers_jump = 1
 imap <C-D> <Del>
 map <C-n> :NERDTreeToggle<CR>
 map <Leader> <Plug>(easymotion-prefix)
+map <C-t> :FZF<CR>
+map <C-c> :Buffers<CR>
 nmap <CR><CR> o<ESC>
 nmap     <C-F>f <Plug>CtrlSFCwordPath
 vmap     <C-F>f <Plug>CtrlSFVwordPath
@@ -80,9 +85,35 @@ let g:pymode_rope = 0
 let g:pymode_rope_completion = 0
 let g:pymode_rope_complete_on_dot = 0
 
+nnoremap <S-Up> :m-2<CR>
+nnoremap <S-Down> :m+<CR>
+inoremap <S-Up> <Esc>:m-2<CR>
+inoremap <S-Down> <Esc>:m+<CR>
+
+execute "set <M-n>=\en"
+"execute "set <M-m>=\em"
+"nnoremap <M-n> :m +1<CR> 
+
+
 function! ShowTerm()
   silent !read -sN 1
   redraw!
 endfunction
 
 map == :call ShowTerm()<CR>
+
+
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+
