@@ -10,8 +10,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Valloric/YouCompleteMe'
 Plug 'jiangmiao/auto-pairs'
 "Plug 'kien/ctrlp.vim'
-Plug '~/.fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'easymotion/vim-easymotion'
 " apt-get install silversearcher-ag
 Plug 'rking/ag.vim'
@@ -25,10 +23,12 @@ Plug 'peterhoeg/vim-qml'
 Plug 'klen/python-mode'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'vim-airline/vim-airline'
+Plug '~/.fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 
-
+set encoding=utf-8
 set number
 set expandtab
 set tabstop=2
