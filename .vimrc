@@ -120,4 +120,4 @@ let g:fzf_action = {
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
 
-
+set rtp+=~/.vim/plugged/YouCompleteMe
