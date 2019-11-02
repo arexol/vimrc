@@ -30,4 +30,4 @@ sudo apt install build-essential cmake
 sudo apt-get install python-dev python3-dev clang libclang-dev
 
 cd ~/.vim/plugged/YouCompleteMe
-python3 install.py --clang-completer -system-libclang
+python3 install.py --clang-completer 
